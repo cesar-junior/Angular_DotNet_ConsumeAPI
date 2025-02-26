@@ -1,0 +1,69 @@
+<mat-dialog-content>
+  <form [formGroup]="empForm" (ngSubmit)="SaveEmployee()">
+    <mat-card>
+      <mat-card-header>
+        <h2>{{ title }}</h2>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-form-field>
+          <mat-label>First name</mat-label>
+          <input matInput formControlName="firstName" />
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Last Name</mat-label>
+          <input matInput formControlName="lastName" />
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>E-mail</mat-label>
+          <input matInput formControlName="email" />
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Contact Number</mat-label>
+          <input matInput formControlName="contactNumber" />
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Date of Birth</mat-label>
+          <input
+            matInput
+            [matDatepicker]="picker"
+            formControlName="dateOfBirth"
+          />
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Country</mat-label>
+          <mat-select formControlName="country">
+            <mat-option value="">Please select a country</mat-option>
+            <mat-option value="Brazil">Brazil</mat-option>
+            <mat-option value="USA">USA</mat-option>
+            <mat-option value="Lebanon">Lebanon</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <p>
+          <mat-form-field>
+            <mat-label>Address</mat-label>
+            <textarea
+              matInput
+              formControlName="address"
+              placeholder="Ex. 100 Main St"
+            ></textarea>
+          </mat-form-field>
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button type="submit" mat-raised-button color="primary">Save</button>
+        <a mat-raised-button color="accent" (click)="closepopup()">Close</a>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+</mat-dialog-content>
